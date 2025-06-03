@@ -6,6 +6,11 @@ from asteroidfield import AsteroidField
 from constants import SCREEN_HEIGHT, SCREEN_WIDTH, FPS_CAP
 
 
+def game_over():
+    print("GAME OVER!")
+    exit()
+
+
 def main():
     print("Starting Asteroids!")
     print(f"Screen width: {SCREEN_WIDTH}")
@@ -42,8 +47,7 @@ def main():
 
         for asteroid in asteroids:
             if player.check_collisions(asteroid):
-                print("GAME OVER!")
-                exit()
+                game_over()
 
         pygame.display.flip()
         dt = game_clock.tick(FPS_CAP) / 1000
