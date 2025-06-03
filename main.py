@@ -40,6 +40,11 @@ def main():
         for draw in drawable:
             draw.draw(screen)
 
+        for asteroid in asteroids:
+            if player.check_collisions(asteroid):
+                print("GAME OVER!")
+                exit()
+
         pygame.display.flip()
         dt = game_clock.tick(FPS_CAP) / 1000
 
