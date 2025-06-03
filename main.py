@@ -1,6 +1,6 @@
 import pygame
 from player import Player
-from constants import *
+from constants import SCREEN_HEIGHT, SCREEN_WIDTH, FPS_CAP
 
 
 def main():
