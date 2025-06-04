@@ -6,6 +6,7 @@ from constants import (
     ASTEROID_KINDS,
     ASTEROID_MIN_RADIUS,
     ASTEROID_SPAWN_RATE,
+    ASTEROID_SPEED_SCALING,
     SCREEN_HEIGHT,
     SCREEN_WIDTH,
 )
@@ -41,7 +42,9 @@ class AsteroidField(pygame.sprite.Sprite):
 
     def spawn(self, radius, position, velocity):
         asteroid = Asteroid(position.x, position.y, radius)
-        asteroid.velocity = velocity
+        bonus_count = ASTEROID_KINDS - (radius / ASTEROID_MIN_RADIUS)
+        speed_bonus = bonus_count * (ASTEROID_SPEED_SCALING - 1)
+        asteroid.velocity = (1 + speed_bonus) * velocity
 
     def update(self, dt):
         self.spawn_timer += dt
