@@ -55,7 +55,7 @@ def main():
             for asteroid in asteroids:
                 if bullet.check_collisions(asteroid):
                     asteroid.kill()
-                    continue
+                    bullet.kill()
 
         pygame.display.flip()
         dt = game_clock.tick(FPS_CAP) / 1000
